@@ -1,48 +1,32 @@
 # Getting started
 
-*Note: Notepad++ + MarkdownPanel plugin is a good way to visualize and edit this file*
-
-## 1. Installing python
+## 1. Installing python and virtualenv
 
 ### Windows
 
-Download Miniconda 3.9 installer from [here](https://docs.conda.io/en/latest/miniconda.html).
-
-At the end of the installation, check the boxes "define as de default PYTHON" and "add to PATH"
+Download Python 3.9 installer from [here](https://www.python.org/downloads/).
+Customize the installation directory for example to `C:\Python39\`
+At the end of the installation, check the boxes "define as the default PYTHON" and "add to PATH"
 
 Checking that the installation was ok:
 
 ```bash
-> conda env list
-# conda environments:
-#
-base                  *  C:\Miniconda3
-```
-
-Now let's check what is the default python interpreter:
-
-```bash
 > where python
-C:\Users\...\AppData\Local\Microsoft\WindowsApps\python.exe
-```
-
-This is not the Miniconda one ! We should activate the base miniconda environment for this:
-
-```bash
-> conda activate
-
-(Miniconda) > where python
-C:\Miniconda3\python.exe
-C:\Users\...\AppData\Local\Microsoft\WindowsApps\python.exe
+C:\Python39\python.exe
 
 > python --version
-Python 3.7.3
+Python 3.X.y
 ```
 
+Now install virtualenv
+
+```bash
+> pip install virtualenv
+```
 
 ### Linux
 
-On Linux targets, conda is not really necessary. 
+On Linux targets, use the default package manager. For example: 
 
 ```bash
 > sudo apt update
@@ -53,79 +37,45 @@ Python 3.X.y
 
 Source: https://linuxize.com/post/how-to-install-pip-on-ubuntu-18.04/#installing-pip-for-python-3
 
-On linux we will use `venv` as a virtual environment manager. This package is available in the standard installation.
+Now install virtualenv
 
+```bash
+> python3.9 -m pip install virtualenv
+```
 
 ### Mac
 
-It seems that the Linux procedure should work on Mac. However here again you may prefer to use conda.
+It seems that the Linux procedure should work on Mac.
 
 
 ## 2. Creating a virtual enviroment
 
-### Conda
-
-First make sure that no environment is active:
+By default `virtualenv` will create the environment in the local folder.
 
 ```bash
-(Miniconda3) > conda deactivate
->
+> python3.9 -m virtualenv miageTd
 ```
 
-Now let's create an environment with python installed:
+We have to activate an environment before using it
 
 ```bash
-> conda create -n miageTd python=3.8
-```
+(windows)
+> miageTd/Scripts/activate.bat
 
-WARNING: each environment needs to be activated before use ! 
-
-```bash
-> conda env list
-# conda environments:
-#
-base                  *  C:\Miniconda3
-miageTd                  C:\Miniconda3\envs\miageTd
-
-> conda activate miageTd
-(miageTd)
-```
-
-Now we can check that the python used is the correct one:
-
-```bash
-(miageTd) > where python
-C:\Miniconda3\envs\baseenv\python.exe
-C:\Users\...\AppData\Local\Microsoft\WindowsApps\python.exe
-```
-
-You can leave a virtual environment with:
-
-```bash
-(miageTd) > conda deactivate
-> 
-```
-
-
-### Venv
-
-As opposed to conda, by default `venv` will create the environment in the local folder. So knowing the env name is less important
-
-```bash
-> python3 -m venv miageTd
-```
-
-Similarly to conda, we have to activate an environment before using it
-
-```bash
+(linux)
 > source miageTd/bin/activate
 ```
 
 Now we can check that the python used is the correct one:
 
 ```bash
-> which python
-.../miageTd/bin/python
+(windows)
+(miageTd) > where python
+<...>/miageTd/bin/python.exe
+
+(linux)
+(miageTd) > which python
+<...>/miageTd/bin/python
 ```
 
 You can leave a virtual environment with:
@@ -134,3 +84,5 @@ You can leave a virtual environment with:
 (miageTd) > deactivate
 > 
 ```
+
+
