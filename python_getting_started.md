@@ -85,4 +85,50 @@ You can leave a virtual environment with:
 > 
 ```
 
+## 3. Installing a package with pip
 
+Installing a package is done using `pip`. 
+Warning: Make sure to activate your virtualenv before installing a package !
+
+```bash
+(miageTd) > pip install numpy
+Collecting numpy
+  Downloading numpy-1.23.1-cp39-cp39-win_amd64.whl (14.7 MB)
+     ---------------------------------------- 14.7/14.7 MB 16.8 MB/s eta 0:00:00
+Installing collected packages: numpy
+Successfully installed numpy-1.23.1
+```
+
+You can check that the package has correctly been installed:
+
+```
+(miageTd) > pip list
+Package    Version
+---------- -------
+numpy      1.23.1
+pip        22.1.2
+setuptools 62.6.0
+wheel      0.37.1
+```
+
+
+## 4. Listing all your requirements
+
+When you wish to share your code with others, you may wish to provide them also a snapshot of all your installed package versions - just in case.
+For this simply do
+
+```bash
+(miageTd) > pip freeze
+numpy==1.23.1
+```
+
+
+## 5. Binding your IDE with the virtualenv
+
+### PyCharm
+
+### Eclipse
+
+### VSCode
+
+### Jupyter
